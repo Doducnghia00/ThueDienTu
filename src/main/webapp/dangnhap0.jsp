@@ -47,7 +47,7 @@
 		style="text-align: center length=100px; width: 600px;">
 
 		<main class="form-signin">
-			<form action="LoginControl" method="post">
+			<form action="DangNhap" method="post">
 				<h1>Đăng Nhập</h1>
 				<div>
 					

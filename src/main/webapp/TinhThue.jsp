@@ -6,8 +6,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/tinhthue.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/main.css" /> 
+    
+    <!-- <script type="text/javascript" src="jquery-3.6.0.js"></script> -->
+    
     <title>Tính thuế</title>
     <style>
 		input::-webkit-outer-spin-button,
@@ -25,9 +31,13 @@
 	    input[type=number] {
 		  -moz-appearance: textfield;
 		}
+		#text{
+			font-style: italic;
+		}
     </style>
 </head>
 <body class="mh-100vh">
+	
     <nav class="navbar navbar-light bg-light p-3">
             <div class="container d-flex justify-content-between ">
                 <a class="navbar-brand d-inline-flex flex-row mx-3 justify-content-start align-items-center" href="#">
@@ -61,24 +71,23 @@
     
         <h3 class="text-center mb-5">Tính thuế thu nhập cá nhân</h3>
         <!-- <h1>Hệ thống tính thuế thu nhập cá nhân</h1> -->
-        <p>Chỉ cần điền Tổng thu nhập, bạn sẽ biết ngay mức thuế TNCN phải nộp</p>
+        <p><b>Chỉ cần điền Tổng thu nhập, bạn sẽ biết ngay mức thuế TNCN phải nộp</b></p>
     </header>
 	<main>
 		<div>
-			<form action = "TinhThue" method = "post">
+			<form class="form-2" id  = "form-2" action = "TinhThue" method = "post">
 			   <div class="form-group" >
 			        <label>Tổng thu nhập: <span>(*)</span></label>
-			        <input type = "number" name="tongthunhap" class="form-control" value="">
+			        <input type = "text" name="tongthunhap" id = "tongthunhap" class="form-control" value="">
 			        <br><br>
 			        <label>Số người phụ thuộc:</label>
-			        <input type = "number" name="songuoiphuthuoc" class="form-control" value="">
+			        <input type = "text" name="songuoiphuthuoc" id= "songuoiphuthuoc" class="form-control" value="">
 			        <br><br>
-			        <label>Thuế TNCN phải nộp: ${thue}</label>
-			        
-			        <!-- <span class="text-mony thuethunhapcanhan"></span> -->
-			        <br><br>
+			       <%--  <label>Thuế TNCN phải nộp: ${thue}</label> --%>
+			       <b><p id = "kq" ></p></b>
 			    </div>
-			    <input type = "submit" class="btn btn-custom border" value="Tính Thuế" style = "margin-top:10px; margin-bottom:10px">
+			    <input type = "button" class="btn btn-custom border" value="Tính Thuế" style = "margin-top:10px; margin-bottom:10px" onclick = "TinhThue()"><br>
+			    <p id = text></p>
 		    </form>
 		    <div>
 		        <b>Bảng thu nhập tính thuế và thuế suất:</b> <br><br>
@@ -146,5 +155,7 @@
         </footer>
         <!--End Footer-->     
     </body>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous" />
+
 </html>

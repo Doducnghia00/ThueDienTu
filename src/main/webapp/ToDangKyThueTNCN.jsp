@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +11,8 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/main.css" />  
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 	<style>
 		html,body{
@@ -49,6 +52,14 @@
 		}
 		.bg-white{
 			margin-bottom:50px;
+		}
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+		  -webkit-appearance: none;
+		  margin: 0;
+		}
+		input[type=number] {
+		  -moz-appearance: textfield;
 		}
 
 	
@@ -100,7 +111,7 @@
         </div>
         <br> <br>
         
-        <form action = "ToDangKyThueTNCN" method = "post" >
+        <form name="myForm" id = "myForm" action = "ToDangKyThueTNCN" method = "post">
             <table align ="center" style = "width: 700px;">
                <tr><td class = "a">
                    <!--LEFT CONTENT-->
@@ -109,7 +120,7 @@
                         <div class = "item 1">
                             <label class = "item-name 1"> 1. Tên người nộp thuế</label><br>
                             <div class = "input_box">
-                                <input type="text" id="tenNNT" name="ct1_tenNNT" value="" class="form-control" style="width: 300px;" maxlength="100" onblur="">
+                                <input type="text" id="ct1_tenNNT" name="ct1_tenNNT" value="${tenNNT}" class="form-control" style="width: 300px;" maxlength="100"  onblur=""/>
                             </div>
                         </div>
 
@@ -192,15 +203,15 @@
                                 <label class = "sub-item-name 4_5">4đ. Điện thoại/Fax/Email:</label><br>
                                 <label style="">Điện thoại:</label>
                                 <div class = "input_box">
-                                    <input type="text" id="ct4d_dienThoai" name="ct4d_dienThoai" value="" class="form-control" style="width:  300px;" maxlength="11" onblur="">
+                                    <input type="number" id="ct4d_dienThoai" name="ct4d_dienThoai" value="" class="form-control" style="width:  300px;" maxlength="11" onblur="">
                                 </div>
                                 <label>Fax:</label>
                                 <div class = "input_box">
-                                    <input type="text" id="ct4d_fax" name="ct4d_fax" value="" class="form-control" style="width: 300px;" maxlength="30" onblur="">
+                                    <input type="number" id="ct4d_fax" name="ct4d_fax" value="" class="form-control" style="width: 300px;" maxlength="30" onblur="">
                                 </div>
                                 <label>Email:</label>
                                 <div class = "input_box">
-                                    <input type="text" id="ct4d_email" name="ct4d_email" value="" class="form-control" style="width: 300px;" maxlength="241" onblur="">
+                                    <input type="email" id="ct4d_email" name="ct4d_email" value="${email }" class="form-control" style="width: 300px;" maxlength="241" onblur="">
                                 </div>
                             </div>
 </div>
@@ -241,15 +252,15 @@
                                 <label class = "sub-item-name 5_5">5đ. Điện thoại/Fax/Email:</label><br>
                                 <label style="">Điện thoại:</label>
                                 <div class = "input_box">
-                                    <input type="text" id="ct5d_dienThoai" name="ct5d_dienThoai" value="" class="form-control" style="width:  300px;" maxlength="11" onblur="">
+                                    <input type="number" id="ct5d_dienThoai" name="ct5d_dienThoai" value="" class="form-control" style="width:  300px;" maxlength="11" onblur="">
                                 </div>
                                 <label>Fax:</label>
                                 <div class = "input_box">
-                                    <input type="text" id="ct5d_fax" name="ct5d_fax" value="" class="form-control" style="width: 300px;" maxlength="30" onblur="">
+                                    <input type="number" id="ct5d_fax" name="ct5d_fax" value="" class="form-control" style="width: 300px;" maxlength="30" onblur="">
                                 </div>
                                 <label>Email:</label>
                                 <div class = "input_box">
-                                    <input type="text" id="ct5d_email" name="ct5d_email" value="" class="form-control" style="width: 300px;" maxlength="241" onblur="">
+                                    <input type="email" id="ct5d_email" name="ct5d_email" value="" class="form-control" style="width: 300px;" maxlength="241" onblur="">
                                 </div>
                             </div>
 </div>
@@ -260,7 +271,7 @@
                             <div class = "sub-item 7_1">
                                 <label class = "sub-item-name 7_1">7a. Số:</label>
                                 <div class = "input_box">
-                                    <input type="text" id="ct7a_so" name="ct7a_so" value="" class="form-control" style="width: 300px;" maxlength="30" onblur="">
+                                    <input type="number" id="ct7a_so" name="ct7a_so" value="" class="form-control" style="width: 300px;" maxlength="30" onblur="">
                                 </div>
                             </div>
 
@@ -293,7 +304,7 @@
                                     <input type="text" id="ct6a_ten" name="ct6a_ten" value="" class="form-control"
                                            style= "width: 300px;" maxlength="60" onblur="">
                                 </div>
-</div>
+							</div>
 
                             <div class = "sub-item 6_2">
                                 <label class = "sub-item-name 6_2">6b. Địa chỉ nơi đăng ký thường trú:</label> <br>
@@ -347,7 +358,7 @@
 
                             <div class = "sub-item 6_4">
                                 <label class = "sub-item-name 6_4">6d. Thông tin khác:</label> <br>
-                                <form style = "margin-top: 0px">
+                                <form>
                                     <table width = "300px">
                                         <tr>
                                             <td>
@@ -360,12 +371,12 @@
                                         <tr>
                                             <td>
                                                 <div class = "input_box">
-                                                    <input type="text" id="ct6d_dienThoai" name="ct6d_dienThoai" value="" class="form-control" style="width: 145px" maxlength="30" onkeypress="" onblur="">
+                                                    <input type="number" id="ct6d_dienThoai" name="ct6d_dienThoai" value="" class="form-control" style="width: 145px" maxlength="30" onkeypress="" onblur="">
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class = "input_box">
-                                                    <input type="text" id="ct6d_fax" name="ct6d_fax" value="" class="form-control" style="width: 145px" maxlength="30" onblur="">
+                                                    <input type="number" id="ct6d_fax" name="ct6d_fax" value="" class="form-control" style="width: 145px" maxlength="30" onblur="">
                                                 </div>
                                             </td>
                                         </tr>
@@ -380,12 +391,12 @@
                                         <tr>
                                             <td>
                                                 <div class = "input_box">
-                                                    <input type="text" id="ct6d_email" name="ct6d_email" value="" class="form-control" style="width: 145px" maxlength="30" onkeypress="" onblur="">
+                                                    <input type="email" id="ct6d_email" name="ct6d_email" value="" class="form-control" style="width: 145px" maxlength="30" onkeypress="" onblur="">
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class = "input_box">
-                                                    <input type="text" id="ct6d_website" name="ct6d_website" value="" class="form-control" style="width: 145px" maxlength="30" onblur="">
+                                                    <input type="url" id="ct6d_website" name="ct6d_website" value="" class="form-control" style="width: 145px" maxlength="30" onblur="">
                                                 </div>
                                             </td>
                                         </tr>
@@ -423,26 +434,26 @@
                                         <td><label>Chọn loại giấy tờ</label></td>  
                                     </tr>
                                     <tr>
-                                        <td><select id="loaiGiayTo" name="ct8c_loaiGiayTo" class="form-select " style="width: 145px;" onchange="">
+                                        <td><select id="ct8c_loaiGiayTo" name="ct8c_loaiGiayTo" class="form-select " style="width: 145px;" onchange="">
 
-											<option value = "" selected = "selected">-----</option>
-                                            <option value="1010" >
+											<option value = "" ${Default} >-----</option>
+                                            <option value="1010" ${CMND} >
                                                 CMND
                                             </option>
 
-                                            <option value="2080">
+                                            <option value="2080" ${CCCD}>
                                                 CCCD
                                             </option>
 
-                                            <option value="1020">
+                                            <option value="1020" ${HoChieu}>
                                                 Hộ chiếu
                                             </option>
 
-                                            <option value="1070">
+                                            <option value="1070" ${CMTBG}>
                                                 CMT biên giới
                                             </option>
 
-                                            <option value="1040">
+                                            <option value="1040" ${GTH}>
                                                 Giấy thông hành
                                             </option>
 
@@ -455,12 +466,12 @@
                                     <tr>
                                         <td>
                                             <div class = "input_box">
-                                                <input type="text" id="ct8c_soGiayTo" name="ct8c_soGiayTo" value="" class="form-control" style="width: 145px" maxlength="30" onkeypress="" onblur="">
+                                                <input type="number" id="ct8c_soGiayTo" name="ct8c_soGiayTo" value="${soGiayTo }" class="form-control" style="width: 145px" maxlength="30" onkeypress="" onblur="">
                                             </div>
                                         </td>
                                         <td>
                                             <div class = "input_box">
-                                                <input type="date" id="ct8c_ngayCap" name="ct8c_ngayCap" value="" class="form-control" style="width: 145px" maxlength="30" onblur="">
+                                                <input type="date" id="ct8c_ngayCap" name="ct8c_ngayCap" value="${ngayCap }" class="form-control" style="width: 145px" maxlength="30" onblur="">
                                             </div>
                                         </td>
                                     </tr>
@@ -477,7 +488,7 @@
                         <div class = "item 9">
                             <label class="item-name 9">9. Vốn kinh doanh (đồng):</label><br>
                             <div class = "input_box">
-                                <input type="text" id="ct9" name="ct9" value="" class="form-control" maxlength="19" style="width: 300px" onkeypress="" onkeyup="" onblur="">
+                                <input type="number" id="ct9" name="ct9" value="" class="form-control" maxlength="19" style="width: 300px" onkeypress="" onkeyup="" onblur="">
                             </div>
                         </div>
 
@@ -526,7 +537,7 @@
                             	</div>
                             </div>
  						</div>
- 						
+ 					</div>	
                 </td></tr> 
             </table>
             
@@ -564,12 +575,12 @@
                         <table>
                             <tr>
                                 <td>Người ký:</td>
-                                <td><input type="text" name="nguoiKy" size="40" id="nguoiKy" class="form-control" maxlength="20" style = "width: 175px" value=""></td>
+                                <td><input type="text" name="nguoiKy" size="40" id="nguoiKy" class="form-control" maxlength="20" style = "width: 175px" value="" ></td>
                             </tr>
                             <tr>
 	                            <div>
 	                                <td>Ngày ký:</td>
-	                                <td><input type="text" name="ngayKy" size="40" id="ngayKy" class="form-control" maxlength="20" style="width: 175px"  value=""></td>
+	                                <td><input type="text" name="ngayKy" size="40" id="ngayKy" class="form-control" maxlength="20" style="width: 175px"  value="${ngayKy}" readonly="readonly"></td>
 	                            </div>
                             </tr>
                         </table>
@@ -578,7 +589,8 @@
             </table>
 
             <!-- <a class="btn btn-custom border mb-5" href="GuiGiayTo.jsp" role="button" style = "margin-top:30px">Hoàn thành kê khai</a> -->
-           <input type = "submit" class="btn btn-custom border" value="Hoàn thành kê khai" style = "margin-top:30px">
+            <input type = "button" class="btn btn-custom border" value="Hoàn thành kê khai" style = "margin-top:30px" onclick= "Validate()"> 
+           <!-- <input type = "button" class = "btn btn-primary" value="Submit" onclick="Validate()"> -->
         </form>
     </div>
     
@@ -595,6 +607,7 @@
     </body>
     
     <!--Import JS-->
+    <script src="js/dangkythue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous" />
 
 </html>

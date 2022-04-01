@@ -35,7 +35,7 @@
                 <div class="container d-flex justify-content-between px-4">
                     <ul class="navbar-nav d-flex flex-row justify-content-start align-items-center ">
                         <li class="nav-item">
-                         <a class="nav-link fs-6 fw-500 active" href="DangKyThue.jsp">Đăng ký thuế lần đầu</a>
+                         <a class="nav-link fs-6 fw-500" href="DangKyThue.jsp">Đăng ký thuế lần đầu</a>
                        </li>
                        <li class="nav-item">
                          <a class="nav-link fs-6 fw-500" href="TinhThue.jsp">Tính Thuế</a>

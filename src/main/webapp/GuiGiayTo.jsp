@@ -56,7 +56,7 @@
         <!--Start Content-->
 	    <div class = "container">
 	        <h3 class="text-center mb-5">Gửi ảnh giấy tờ</h3>
-	        <form class="form-horizontal w-50 mx-auto" action="GuiGiayTo">
+	        <form class="form-horizontal w-50 mx-auto" action="GuiGiayTo" method = "post" enctype='multipart/form-data'>
 	           <div class="form-group row my-3"> 
 	                <label class="control-label col-sm-4" for="loaiGiayTo">Loại giấy tờ:</label>
 	                <div class="col-sm-8">
@@ -82,7 +82,7 @@
 	           <div class="form-group row my-3">  
 	               <label class="control-label col-sm-4"> Chọn tệp dữ liệu </label>
 	                <div class="col-sm-8">
-	                    <input type="file" class="form-control-file" id="file">
+	                    <input type="file" class="form-control-file" id="file" name = "file" accept="image/*" required>
 	                </div>
 	            </div>
 	            <div class="form-group row my-3" >

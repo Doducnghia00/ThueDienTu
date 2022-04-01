@@ -14,35 +14,53 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 */
 
+import model.TaiKhoan;
+
 import java.io.IOException;
+import java.sql.SQLException;
+
+import dao.TaiKhoanDao;
 
 /**
- * Servlet implementation class TinhThue
+ * Servlet implementation class DangNhap
  */
-@WebServlet("/TinhThue")
-public class TinhThue extends HttpServlet {
+public class DangNhap extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-    public TinhThue() {
+    public DangNhap() {
         super();
 
     }
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("TinhThue.jsp").forward(request, response);
+
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*String tongthunhap = request.getParameter("tongthunhap");
-		String songuoiphuthuoc = request.getParameter("songuoiphuthuoc");
+		response.setContentType("text/html;charset=UTF-8");
+		//System.out.println("dopost");
+		String username=request.getParameter("username");
+		String password =request.getParameter("password");
 		
-		long x = Long.parseLong(tongthunhap);
-		long y = Long.parseLong(songuoiphuthuoc);*/
+		TaiKhoanDao taiKhoan = new TaiKhoanDao();
+		TaiKhoan a;
+		try {
+			a = taiKhoan.login(username, password);
+			if(a==null) {
+				request.getRequestDispatcher("dangnhap0.jsp").forward(request, response);
+			}else {
+				request.getRequestDispatcher("index.jsp").forward(request, response);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-        
 		doGet(request, response);
 	}
+
 }

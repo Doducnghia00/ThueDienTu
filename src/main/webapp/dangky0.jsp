@@ -65,21 +65,21 @@
 					</div>
 					<div>
 						<label>Số điện thoại </label> <input class="form-control"
-							id="floatingInput4" placeholder="Nhập số điện thoại">
+							id="floatingInput4" name = "sodienthoai" placeholder="Nhập số điện thoại">
 					</div>
 					<div>
 						<label>Email </label> <input class="form-control"
-							id="floatingInput5" placeholder="Nhập email của bạn">
+							id="floatingInput5" name = "email" placeholder="Nhập email của bạn">
 					</div>
 					<div>
 						<label for="pwd" class="form-label">Mật khẩu</label> <input
 							type="password" class="form-control" id="pwd"
-							placeholder="***********" name="pswd" required>
+							placeholder="***********" name="password" required>
 					</div>
 					<div>
 						<label for="pwd" class="form-label">Nhập lại mật khẩu</label> <input
 							type="password" class="form-control" id="pwd"
-							placeholder="***********" name="pswd" required>
+							placeholder="***********" name="repassword" required>
 					</div>
 					<div class="checkbox mb-3">
 						<label> <input type="checkbox" value="remember-me">

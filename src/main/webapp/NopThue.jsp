@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
         <link rel="stylesheet" href="css/main.css" />
-    <title>dongthue-gd</title>
+    <title>Nộp Thuế</title>
     <style>
         .anh{
          padding-left: 100px;
@@ -29,9 +29,9 @@
     
 </head>
 <body class="mh-100vh">
-<nav class="navbar navbar-light bg-light p-3">
+<nav class="navbar navbar-light p-3">
             <div class="container d-flex justify-content-between ">
-                <a class="navbar-brand d-inline-flex flex-row mx-3 justify-content-start align-items-center" href="home.html">
+                <a class="navbar-brand d-inline-flex flex-row mx-3 justify-content-start align-items-center" href="index.jsp">
                     <img src="images/logo.png" class="img-fluid" alt="...">                    
                     <img src="images/sitename.png" class="img-fluid ml-2" alt="...">
                 </a>
@@ -42,159 +42,146 @@
                 <div class="container d-flex justify-content-between px-4">
                     <ul class="navbar-nav d-flex flex-row justify-content-start align-items-center ">
                        <li class="nav-item">
-                         <a class="nav-link fs-6 fw-500 active" aria-current="page" href="DangKyThue.html">ÄÄng kÃ½ thuáº¿ láº§n Äáº§u</a>
+                         <a class="nav-link fs-6 fw-500" aria-current="page" href="DangKyThue.jsp">Đăng ký thuế lần đầu</a>
                        </li>
                        <li class="nav-item">
-                         <a class="nav-link fs-6 fw-500" href="TinhThue.html">TÃ­nh Thuáº¿</a>
+                         <a class="nav-link fs-6 fw-500" href="TinhThue.jsp">Tính Thuế</a>
                        </li>
                        <li class="nav-item">
-                         <a class="nav-link fs-6 fw-500" href="KeKhaiThue.html">KÃª khai thuáº¿</a>
+                         <a class="nav-link fs-6 fw-500" href="KeKhaiThue.jsp">Kê khai thuế</a>
                        </li>
                        <li class="nav-item">
-                         <a class="nav-link fs-6 fw-500"href="NopThue.html">Ná»p thuáº¿</a>
+                         <a class="nav-link fs-6 fw-500 active" href="NopThue.jsp">Nộp thuế</a>
                        </li>
                        
                      </ul>
                 </div>
             </nav>
-   <header>
-       <h2>Nháº­p dá»¯ liá»u tá» khai</h2>
-       <h3>Tá» khai quyáº¿t toÃ¡n thuáº¿ thu tháº­p cÃ¡ nhÃ¢n(TT92/2015) </h3>
-       <h3>(Ãp dá»¥ng cho cÃ¡ nhÃ¢n cÆ° trÃº cÃ³ thu tháº­p tá»« tiá»n lÆ°Æ¡ng, tiá»n cÃ´ng)</h3>
-   </header>
-   <div class="container-fluid">
-    <main>
-       <form>
-           <table >
-               <tr>
-                   <td>TÃªn ngÆ°á»i ná»p thuáº¿</td>
-                   <td><input  type="text" id="txtName" name="txtName"></td>
-               </tr>
-               <tr>
-                <td>NgÃ y sinh</td>
-                <td><input type="date" id="txtNgaysinh" name="txtNgaysinh"></td>
-            </tr>
-            <tr>
-                <td>Sá» CMND(hoáº·c sá» CCCD)</td>
-                <td><input type="text" id="txtSocmnd" name="txtSocmnd"></td>
-            </tr>
-            <tr>
-                <td>MÃ£ sá» thuáº¿</td>
-                <td><input type="text" id="txtMasothue" name="txtMasothue"></td>
-            </tr>
-            <tr>
-                <td>Äá»a chá»</td>
-                <td><input type="text" id="txtAddress" name="txtAddress"></td>
-            </tr>
-            <tr>
-                <td>Quáº­n huyá»n</td>
-                <td><input type="text" id="txtQh" name="txtQh"></td>
-            </tr>
-            <tr>
-                <td>Tá»nh/thÃ nh phá»</td>
-                <td><input type="text" id="txtTinh" name="txtTinh"></td>
-            </tr>
-            <tr>
-                <td>Äiá»n thoáº¡i</td>
-                <td><input type="tel" id="txtPhone" name="txtPhone"></td>
-            </tr>
-            <tr>
-                <td>Fax</td>
-                <td><input type="text" id="txtFax" name="txtFax"></td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td><input type="email" id="txtEmail" name="txtEmail"></td>
-            </tr>
-            <tr>
-                <td>Ká»³ thuáº¿ muá»n ná»p tá»«</td>
-                <td><input type="date" id="txtKt" name="txtKt"></td>
-                <td>Äáº¿n</td>
-                <td><input type="date" id="txtktt" name="txtktt"></td>
-            </tr>
-            <tr>
-                <td>Sá» tiá»n thuáº¿ cáº§n ná»p báº±ng sá»</td>
-                <td><input type="number" id="txtst" name="txtst"></td>
-            </tr>
-            <tr>
-                <td>Sá» tiá»n thuáº¿ cáº§n ná»p báº±ng chá»¯</td>
-                <td><input type="text" id="txtstc" name="txtstc"></td>
-            </tr>
-            <tr>
-                <td>Sá» tÃ i khoáº£n ngÃ¢n hÃ ng(náº¿u cÃ³)</td>
-                <td><input type="text" id="txtttk" name="txttk"></td>
-            </tr>
-            <tr>
-                <td>TÃ i khoáº£n ngÃ¢n hÃ ng má» táº¡i:</td>
-                <td>
-                    <select id="tknh">
-                        <option value="1">Agribank</option>
-                        <option value="2">CB</option>
-                        <option value="3">Oceanbank</option>
-                        <option value="4">GPBank</option>
-                        <option value="5">BIDV</option>
-                        <option value="6">Vietcombank</option>
-                        <option value="7">VPBank</option>
-                        <option value="8">MBB</option>
-                        <option value="9">ACB</option>
+  
+   <div class="mt-5 mh-100vh container">
+    <div class="text-center mb-5">
+       <h3>Tờ khai nộp thuế </h3>
+    </div>
+       <form class="form-horizontal mx-auto mb-5" action="<%= request.getContextPath() %>/NopThue" method="post">
+       		<div class="form-group row my-3">
+	           <div class="form-group row col-sm-6">
+	               <label class="control-label col-sm-4" for="name">Tên người nộp thuế:</label>
+	               <div class="col-sm-8">
+	                   <input type="text" class="form-control w-50" id="name" name="name" value="Nguyễn Văn A" readonly/>
+	               </div>
+	           </div>
+	           <div class="form-group row col-sm-6">
+	               <label class="control-label col-sm-4" for="address">Địa chỉ liên hệ:</label>
+	               <div class="col-sm-8">
+	                   <input type="text" class="form-control" id="address" name="address" value="Km10 Trần Phú Hà Đông, Hà Nội" readonly />
+	               </div>
+	           </div>
+	       </div>
+	       <div class="form-group row my-3">
+	           <div class="form-group row col-sm-6">
+	               <label class="control-label col-sm-4" for="dob">Ngày sinh:</label>
+	               <div class="col-sm-8">
+	                   <input type="date" class="form-control w-50" id="dob" name="dob" value="" readonly/>
+	               </div>
+	           </div>
+	           <div class="form-group row col-sm-6">
+	               <label class="control-label col-sm-4" for="cmnd">Số CMND/CCCD:</label>
+	               <div class="col-sm-8">
+	                   <input type="text" class="form-control w-75" id="cmnd" name="cmnd" value="238634786" readonly />
+	               </div>
+	           </div>
+	       </div>
+	       <div class="form-group row my-3">  
+	           <div class="form-group row col-sm-6">
+	               <label class="control-label col-sm-4" for="phone">Điện thoại liên lạc:</label>
+	               <div class="col-sm-8">
+	                   <input type="phone" class="form-control w-50" id="phone" name="phone" value="012345678" readonly />
+	               </div>
+	           </div>
+	           <div class="form-group row col-sm-6">
+	             <label class="control-label col-sm-4" for="email">Địa chỉ Email:</label>
+	             <div class="col-sm-8">
+	               <input type="email" class="form-control w-50" id="email" value="test123@gmail.com" name="email" readonly />
+	             </div>
+	           </div>
+	       </div>
+	       <div class="form-group row my-3">
+	           <div class="form-group row col-sm-6">
+	               <label class="control-label col-sm-4" for="idThue">Mã số thuế:</label>
+	               <div class="col-sm-8">
+	                   <input type="text" class="form-control w-50" id="idThue" name="mst" value="01232674" readonly />
+	               </div>
+	           </div>
+	           <div class="form-group row col-sm-6">
+	               <label class="control-label col-sm-4" for="cqt">Cơ quan thuế:</label>
+	               <div class="col-sm-8">
+	                   <select id="cqt" class="form-select w-50" role="button" name="cqt" required autofocus="autofocus">
+	                      <option>Hà Nội</option>                    
+	                      <option>Đà Nẵng</option>
+	                      <option>Hải Phòng</option>
+	                      <option>Đồng Nai</option>
+	                      <option>Nghệ An</option>
+                      </select>
+	               </div>
+	           </div>                
+	       </div>
+	       <div class="form-group row my-3">
+	           <div class="form-group row col-sm-6">
+	               <label class="control-label col-sm-4" for="idNganHang">Tài khoản ngân hàng:</label>
+	               <div class="col-sm-8">
+	                   <select id="tknn" class="form-select w-50" role="button" name="nganhang" required>
+                        <option>Agribank</option>
+                        <option>CB</option>
+                        <option>Oceanbank</option>
+                        <option>GPBank</option>
+                        <option>BIDV</option>
+                        <option>Vietcombank</option>
+                        <option>VPBank</option>
+                        <option>MBB</option>
+                        <option>ACB</option>
                     </select>
-                </td>
-                
-            </tr>
-            <tr>
-                <td>TÃªn Äáº¡i lÃ½ thuáº¿(náº¿u cÃ³)</td>
-                <td><input type="text" id="txtdaily" name="txtdaily"></td>
-            </tr>
-            <tr>
-                <td>MÃ£ sá» thuáº¿</td>
-                <td><input type="text" id="txtMasothuedl" name="txtMasothuedl"></td>
-            </tr>
-            <tr>
-                <td>Äá»a chá»</td>
-                <td><input type="text" id="txtAddressdl" name="txtAddressdl"></td>
-            </tr>
-            <tr>
-                <td>Quáº­n huyá»n</td>
-                <td><input type="text" id="txtQhdl" name="txtQhdl"></td>
-            </tr>
-            <tr>
-                <td>Tá»nh/thÃ nh phá»</td>
-                <td><input type="text" id="txtTinhdl" name="txtTinhdl"></td>
-            </tr>
-            <tr>
-                <td>Äiá»n thoáº¡i</td>
-                <td><input type="tel" id="txtPhonedl" name="txtPhonedl"></td>
-            </tr>
-            <tr>
-                <td>Fax</td>
-                <td><input type="text" id="txtFaxdl" name="txtFaxdl"></td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td><input type="email" id="txtEmaildl" name="txtEmaildl"></td>
-            </tr>
-            <tr>
-                <td>Há»£p Äá»ng thuáº¿,sá»:</td>
-                <td><input type="text" id="txtHdt" name="txtHdt"></td>
-                <td>ngÃ y</td>
-                <td><input type="date" id="txtngay" name="txtngay"></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Ná»p thuáº¿"></td>
-            </tr>
-           </table>
+	               </div>
+	           </div>
+	           <div class="form-group row col-sm-6">
+	               <label class="control-label col-sm-4" for="cqt">Số tài khoản ngân hàng:</label>
+	               <div class="col-sm-8">
+	                   <input type="text" class="form-control w-75" id="idSTK" name="stk" value="" required/>
+	               </div>
+	           </div>
+	        </div>       
+	        <div class="form-group row my-3">
+	           <div class="form-group row col-sm-6">
+	               <label class="control-label col-sm-4" for="moneyNumber">Số tiền thuế nộp bằng số:</label>
+	               <div class="col-sm-8">
+	                   <input type="text" class="form-control w-50" id="moneyNumber" name="tienso" value="" required/>
+	               </div>
+	           </div>
+	           <div class="form-group row col-sm-6">
+	               <label class="control-label col-sm-4" for="moneyText">Số tiền thuế nộp bằng chữ:</label>
+	               <div class="col-sm-8">
+	                   <input type="text" class="form-control w-100" id="moneyText" name="tienchu" value="" required/>
+	               </div>
+	           </div>
+	       </div>         
+	       <div class="form-group row my-3">  
+            <label class="control-label col-sm-2" for="kithue">Kỳ thuế muốn nộp từ:</label>
+            <div class="col-sm-10 px-1"> 
+               <input type="date" class="form-control w-25 d-inline-block" id="kithueStart" name="kithueStart" value="" required/>
+               <span class="mx-2 d-inline-block">đến</span>
+               <input type="date" class="form-control w-25 d-inline-block" id="kithueEnd" name="kithueEnd" value="" required/>
+            </div>
+	       </div>
+		   <div class="mx-auto text-center mt-5">
+               <input type="submit" class="btn btn-custom border" value="Nộp Thuế" />
+           </div>
        </form>
-   </main>
 </div>
-<div >
-<h1 style="margin-top: 200px;"></h1>
-</div>
-<div>
-<footer class="navbar navbar-light bg-light p-3 footer fixed-bottom" style="margin-top: 50px">
+
+		<div>
+		<footer class="navbar navbar-light bg-light p-3 footer " style="margin-top: 50px">
             <div class="container d-flex justify-content-between ">
-                <span>CÆ¡ quan chá»§ quáº£n: VÄn phÃ²ng ChÃ­nh phá»§</span>
-                <span>Tá»ng ÄÃ i há» trá»£: 18001096</span>
+                <span>Cơ quan chủ quản: Văn phòng Chính phủ</span>
+                <span>Tổng đài hỗ trợ: 18001096</span>
                 <span>Email: thuedientu@chinhphu.vn</span>
             </div>               
         </footer> 

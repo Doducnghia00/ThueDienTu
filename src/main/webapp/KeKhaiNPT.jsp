@@ -21,7 +21,7 @@
         <div class="bg-white">
             <nav class="navbar navbar-light p-3">
                 <div class="container d-flex justify-content-between ">
-                    <a class="navbar-brand d-inline-flex flex-row mx-3 justify-content-start align-items-center" href="#">
+                    <a class="navbar-brand d-inline-flex flex-row mx-3 justify-content-start align-items-center" href="home.jsp">
                         <img src="images/logo.png" class="img-fluid" alt="...">                    
                         <img src="images/sitename.png" class="img-fluid ml-2" alt="...">
                     </a>
@@ -35,19 +35,16 @@
                 <div class="container d-flex justify-content-between px-4">
                     <ul class="navbar-nav d-flex flex-row justify-content-start align-items-center ">
                        <li class="nav-item">
-                         <a class="nav-link fs-6 fw-500" href="#">Đăng ký thuế lần đầu</a>
+                         <a class="nav-link fs-6 fw-500" href="DangKyThue.jsp">Đăng ký thuế lần đầu</a>
                        </li>
                        <li class="nav-item">
-                         <a class="nav-link fs-6 fw-500" href="#">Tính thuế</a>
+                         <a class="nav-link fs-6 fw-500" href="TinhThue.jsp">Tính thuế</a>
                        </li>
                        <li class="nav-item">
                          <a class="nav-link fs-6 fw-500 active" href="KeKhaiThue.jsp">Kê khai thuế</a>
                        </li>
                        <li class="nav-item">
-                         <a class="nav-link fs-6 fw-500"href="#">Nộp thuế</a>
-                       </li>
-                       <li class="nav-item">
-                         <a class="nav-link fs-6 fw-500" href="#">Tính thuế</a>
+                         <a class="nav-link fs-6 fw-500"href="NopThue.jsp">Nộp thuế</a>
                        </li>
                      </ul>
                 </div>
@@ -120,7 +117,7 @@
                          <td class="align-middle text-center"><%=npt.getCmnd()%></td>
                         <td class="align-middle text-center"><%=npt.getRelationship()%></td>
                         <td class="align-middle text-center">
-                            <button class="border btn-delete">Xóa</button>
+                            <!-- <button class="border btn-delete">Xóa</button> -->
                         </td>
                       </tr>
                       <%}%>
@@ -129,6 +126,7 @@
                   </table>
                 <div class="text-center my-5">
                     <a class="btn btn-custom border mx-auto" href="<%= request.getContextPath() %>/KeKhaiThue">Hoàn Thành Kê Khai NPT</a>
+                     
                 </div>
             </div>
         </div>

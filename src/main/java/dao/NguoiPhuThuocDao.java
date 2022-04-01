@@ -35,6 +35,7 @@ public class NguoiPhuThuocDao extends DAO {
                  String address = rs.getString("address");
                  String relationship = rs.getString("relationship");
                  Date dob = rs.getDate("dob");
+                // String dob = rs.getString("dob");
                  list.add(new NguoiPhuThuoc(id,idUser,fullname, address, cmnd, relationship, dob));
             }
             return list;

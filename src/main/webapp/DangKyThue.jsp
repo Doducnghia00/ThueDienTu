@@ -134,7 +134,7 @@
                                 </td>
                                 <td>
                                     <div class = "col-sm-8"">
-                                        <select id="loaiGiayTo" class="form-select "  style="" name="loaiGiayTo" onchange="" >
+                                        <select id="loaiGiayTo" class="form-select "  style="" name="loaiGiayTo" required onchange="" >
                                             <option value="" selected="selected">-- Loại giấy tờ --</option>
 
                                                 <option value="1010">
@@ -170,7 +170,7 @@
                                 </td>
                                 <td>
                                     <div class = "col-sm-8"">
-                                        <input type = "text" class="form-control" id="soGiayTo" name="soGiayTo" style=""  maxlength="30" size="30" onblur="" onkeypress="">
+                                        <input type = "text" class="form-control" id="soGiayTo" required name="soGiayTo" style=""  maxlength="30" size="30" onblur="" onkeypress="">
                                     </div>
                                 </td>
                             </tr>
@@ -183,7 +183,7 @@
                                 </td>
                                 <td>
                                     <div class = "col-sm-8"">
-                                        <input type = "date" class="form-control" id="date" name = "date" maxlength="50" size="30" style="">
+                                        <input type = "date" class="form-control" id="ngayCap" required name = "ngayCap" maxlength="50" size="30" style="">
                                        <!-- <input type="text" id="ngayCap" name="ngayCap" value="" onblur="trimCT(this); validDateFormat(this,'dd/mm/yyyy'); checkToDateNow(this);" style="width: 250px;"> <label class="lbl-error"></label> -->
                                     </div>
                                 </td>
@@ -198,7 +198,7 @@
                                 </td>
                                 <td>
                                     <div class = "col-sm-8"">
-                                        <input type="email" class="form-control" id="email" name="email" value="" style="" maxlength="30" size="30">
+                                        <input type="email" class="form-control" id="email" required name="email" value="" style="" maxlength="30" size="30">
                                       
                                     </div>
                                 </td>
