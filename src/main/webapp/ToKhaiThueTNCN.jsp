@@ -16,7 +16,7 @@
        
     </head>
     
-    <body class="mh-100vh">
+    <body>
         
         <!--Start Header-->
         <div class="bg-white">
@@ -26,10 +26,10 @@
                         <img src="images/logo.png" class="img-fluid" alt="...">                    
                         <img src="images/sitename.png" class="img-fluid ml-2" alt="...">
                     </a>
-                    <div>
-                        <a href="DangKi.jsp" class="btn btn-outline-secondary btn-custom border">Đăng Ký</a>
-                        <a href="DangNhap.jsp" class="btn btn-outline-secondary btn-custom border">Đăng Nhập</a>
-                    </div>
+                    <div >
+	                    <h4 class="d-inline-block" style="margin-right: 20px">${sessionScope.hoten } </h4>
+	                    <a href="index.jsp" class="btn btn-outline-secondary btn-custom border">Đăng Xuất</a>
+	                </div>
                 </div>
             </nav>
             <nav class="navbar navbar-light bg-light px-3 py-0 my-2">
@@ -65,13 +65,13 @@
                     <div class="form-group row col-sm-6">
                         <label class="control-label col-sm-4" for="name">Tên người nộp thuế:</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control w-50" id="name" name="name" value="Nguyễn Văn A" readonly/>
+                            <input type="text" class="form-control w-50" id="name" name="name" value="${sessionScope.hoten }" readonly/>
                         </div>
                     </div>
                     <div class="form-group row col-sm-6">
                         <label class="control-label col-sm-4" for="address">Địa chỉ liên hệ:</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="address" name="address" value="Km10 Trần Phú Hà Đông, Hà Nội" readonly />
+                            <input type="text" class="form-control" id="address" name="address" value="${sessionScope.diachi}" readonly />
                         </div>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                     <div class="form-group row col-sm-6">
                         <label class="control-label col-sm-4" for="idThue">Mã số thuế:</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control w-50" id="idThue" name="mst" value="01232674" readonly />
+                            <input autofocus type="text" class="form-control w-50" id="idThue" name="mst" required="required" />
                         </div>
                     </div>
                     <div class="form-group row col-sm-6">
@@ -94,13 +94,13 @@
                     <div class="form-group row col-sm-6">
                         <label class="control-label col-sm-4" for="name">Điện thoại liên lạc:</label>
                         <div class="col-sm-8">
-                            <input type="phone" class="form-control w-50" id="email" value="012345678" readonly />
+                            <input type="phone" class="form-control w-50" id="email" value="${sessionScope.sodienthoai}" readonly />
                         </div>
                     </div>
                     <div class="form-group row col-sm-6">
                       <label class="control-label col-sm-4" for="email">Địa chỉ Email:</label>
                       <div class="col-sm-8">
-                        <input type="email" class="form-control w-50" id="email" value="test123@gmail.com" name="email" readonly />
+                        <input type="email" class="form-control w-50" id="email" value="test123@gmail.com" name="${sessionScope.email}" readonly />
                       </div>
                     </div>
                 </div>
@@ -156,7 +156,7 @@
                            Các khoản giảm trừ 
                         </td>
                         <td class="align-middle text-center col-2">VNĐ</td>
-                        <td class="align-middle text-center col-2"><%=4400000 * 12 * (int) request.getAttribute("soNPT") + 11000000 * 12 %></td>
+                        <td class="align-middle text-center col-2"><%=4400000 * (int) request.getAttribute("soNPT") + 11000000 %></td>
  
                     </tr>
                     <tr>
@@ -164,14 +164,14 @@
                            a. Cho bản thân cá nhân
                         </td>
                         <td class="align-middle text-center col-2">VNĐ</td>
-                        <td class="align-middle text-center col-2"><input type="text" class="text-center border-0" id="cn" name="cn" value="132000000" readonly/></td>
+                        <td class="align-middle text-center col-2"><input type="text" class="text-center border-0" id="cn" name="cn" value="11000000" readonly/></td>
                     </tr>
                     <tr>
                         <td>
                             b. Cho những người phụ thuộc được giảm trừ
                         </td>
                         <td class="align-middle text-center col-2">VNĐ</td>
-                        <td class="align-middle text-center col-2"><input type="text" class="text-center border-0" id="pt" name="pt" value="<%= 12 * 4400000 * (int) request.getAttribute("soNPT") %>" readonly /></td>
+                        <td class="align-middle text-center col-2"><input type="text" class="text-center border-0" id="pt" name="pt" value="<%= 4400000 * (int) request.getAttribute("soNPT") %>" readonly /></td>
                    </tr>
                    <tr>
 	                    <th scope="row" class="align-middle text-center">4</th>

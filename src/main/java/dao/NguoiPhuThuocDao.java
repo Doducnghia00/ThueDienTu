@@ -1,9 +1,11 @@
 package dao;
+import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import model.NguoiPhuThuoc;
@@ -44,4 +46,19 @@ public class NguoiPhuThuocDao extends DAO {
         }
         return null;
     }
+	public void deleteNpt(NguoiPhuThuoc npt) {
+		String COUNT_NPT = "delete from thuedientu.nguoiphuthuoc where (fullname = ?) and (dob = ?) and (cmnd = ?) and (relationship = ?) and (address = ?) and (idUser = ?) ";
+        try ( PreparedStatement pr = con.prepareStatement(COUNT_NPT)) {
+        	 pr.setString(1, npt.getFullname());
+             pr.setDate(2, new java.sql.Date(npt.getDob().getTime()));
+             pr.setString(3, npt.getCmnd());
+             pr.setString(4, npt.getRelationship());
+             pr.setString(5, npt.getAddress());
+             pr.setInt(6, npt.getIdUser());
+             pr.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+		
+	}
 }

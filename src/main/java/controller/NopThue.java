@@ -8,15 +8,16 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-/*
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-*/
+
+//import javax.servlet.ServletException;
+//import javax.servlet.annotation.WebServlet;
+//import javax.servlet.http.HttpServlet;
+//import javax.servlet.http.HttpServletRequest;
+//import javax.servlet.http.HttpServletResponse;
+
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -47,11 +48,11 @@ public class NopThue extends HttpServlet {
 	}
 
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
-//		int idUser = (int)session.getAttribute("idUser");
+		int idUser = (int)session.getAttribute("id");
 		System.out.print(request.getParameter("name"));
 		String cqt =  (String) request.getParameter("cqt");
 		String nganhang = (String) request.getParameter("nganhang");
@@ -65,16 +66,25 @@ public class NopThue extends HttpServlet {
 		Date kithueStart = null;
 		Date kithueEnd =  null;
 		try {
+			
 			kithueStart = new SimpleDateFormat("yyyy-mm-dd").parse(request.getParameter("kithueStart"));
 			kithueEnd =  new SimpleDateFormat("yyyy-mm-dd").parse(request.getParameter("kithueEnd"));
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		ToNopThue tnt = new ToNopThue(1, cqt, mst,tennguoinop,nganhang,stk,cmnd,tienchu,tienso, kithueStart, kithueEnd,ngaytao);
+		
+		
+		
+		ToNopThue tnt = new ToNopThue(idUser, cqt, mst,tennguoinop,nganhang,stk,cmnd,tienchu,tienso, kithueStart, kithueEnd,ngaytao);
 		ToNopThueDao tntDao = new ToNopThueDao();  
 		tntDao.themToNopThue(tnt);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("ChoDuyet.jsp");
-		dispatcher.forward(request, response);
+		response.getWriter().write("success");
+		//request.getRequestDispatcher("ChoDuyet.jsp").forward(request, response);
+		//dispatcher.forward(request, response);
+		
+		response.sendRedirect("ChoDuyet.jsp");
 	}
+	
+
 
 }

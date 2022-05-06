@@ -16,14 +16,14 @@
                     <img src="images/sitename.png" class="img-fluid ml-2" alt="...">
                 </a>
                 <div>
-                    <a href="dangky0.jsp" class="btn btn-outline-secondary btn-custom border">Đăng Ký</a>
-                    <a href="dangnhap0.jsp" class="btn btn-outline-secondary btn-custom border">Đăng Nhập</a>
+                    <a href="dangky.jsp" class="btn btn-outline-secondary btn-custom border">Đăng Ký</a>
+                    <a href="dangnhap.jsp" class="btn btn-outline-secondary btn-custom border">Đăng Nhập</a>
                 </div>
             </div>
         </nav>
         <div class="mt-5">
             <div class="d-flex flex-row justify-content-center align-items-center mt-5">
-                <a href="DangKyThue.jsp" class="m-5">
+                <a href="dangnhap.jsp" class="m-5">
                     <div class="text-center">
                         <span class="rounded-circle p-5 bg-custom d-inline-block">
                             <img src="https://dichvucong.gov.vn/p/home/img/tracuu/dkthuelandau.svg" class="h-60 w-60 img-fluid" />
@@ -31,7 +31,7 @@
                         <h4 class="text-black fs-5 text-decoration-none mt-4">Đăng ký thuế lần đầu</h4>
                     </div> 
                 </a>
-                <a href="TinhThue.jsp" class="m-5">
+                <a href="dangnhap.jsp" class="m-5">
                     <div class="text-center">
                         <span class="rounded-circle p-5 bg-custom d-inline-block">
                             <img src="images/tinhthue3.svg" class="h-60 w-60 img-fluid" />
@@ -39,7 +39,7 @@
                         <h4 class="text-black fs-5 text-decoration-none mt-4">Tính thuế</h4>
                     </div> 
                 </a>
-                <a href="KeKhaiThue.jsp" class="m-5">
+                <a href="dangnhap.jsp" class="m-5">
                     <div class="text-center">
                         <span class="rounded-circle p-5 bg-custom d-inline-block">
                             <img src="https://dichvucong.gov.vn/p/home/img/tracuu/kekhaithuecn.svg" class="h-60 w-60 img-fluid" />
@@ -47,7 +47,7 @@
                         <h4 class="text-black fs-5 text-decoration-none mt-4">Kê khai thuế</h4>
                     </div> 
                 </a>
-                <a href="NopThue.jsp" class="m-5">
+                <a href="dangnhap.jsp" class="m-5">
                     <div class="text-center">
                         <span class="rounded-circle p-5 bg-custom d-inline-block">
                             <img src="https://dichvucong.gov.vn/p/home/img/tracuu/nopthuecn.svg" class="h-60 w-60 img-fluid" />

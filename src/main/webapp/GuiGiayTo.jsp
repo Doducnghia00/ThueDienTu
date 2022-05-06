@@ -28,7 +28,10 @@
                         <img src="images/logo.png" class="img-fluid" alt="...">                    
                         <img src="images/sitename.png" class="img-fluid ml-2" alt="...">
                     </a>
-                   
+                   <div >
+	                    <h4 class="d-inline-block" style="margin-right: 20px">${sessionScope.hoten } </h4>
+	                    <a href="index.jsp" class="btn btn-outline-secondary btn-custom border">Đăng Xuất</a>
+	                </div>
                 </div>
             </nav>
             <nav class="navbar navbar-light bg-light px-3 py-0 my-2">
@@ -60,7 +63,7 @@
 	           <div class="form-group row my-3"> 
 	                <label class="control-label col-sm-4" for="loaiGiayTo">Loại giấy tờ:</label>
 	                <div class="col-sm-8">
-	                    <select id="loaiGiayTo" name="loaiGiayTo" class="form-select w-50" role="button" required>
+	                    <select autofocus id="loaiGiayTo" name="loaiGiayTo" class="form-select w-50" role="button" required>
 	
 	                        <option value = "" selected = "selected">-----</option>
 	                        <option value="1010" >CMND</option>
@@ -88,7 +91,8 @@
 	            <div class="form-group row my-3" >
 	                 <label class="control-label col-sm-4"></label>
 	                <div class="col-sm-8">
-	                    <input type = "submit" class="btn btn-custom border" value="Tiếp tục" style = "width: 100px">
+	                    <input type = "submit" class="btn btn-custom border" name = "tieptuc" value="Tiếp tục" style = "width: 100px">
+	                    <!-- <input type = "submit" class="btn btn-custom border" name = "huy" value="Hủy" style = "margin-left: 10px; width: 100px"> -->
 	                    <a class="btn btn-custom border" href="home.jsp" role="button" style = "margin-left: 10px; width: 100px">Hủy</a>
 	                </div>
 	            </div>
@@ -111,7 +115,6 @@
         </footer>       
     </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous" />
-
 </html>
 
         

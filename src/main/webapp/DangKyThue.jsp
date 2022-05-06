@@ -63,7 +63,10 @@
                         <img src="images/logo.png" class="img-fluid" alt="...">                    
                         <img src="images/sitename.png" class="img-fluid ml-2" alt="...">
                     </a>
-                    
+                   <div >
+	                    <h4 class="d-inline-block" style="margin-right: 20px">${sessionScope.hoten } </h4>
+	                    <a href="index.jsp" class="btn btn-outline-secondary btn-custom border">Đăng Xuất</a>
+	                </div>
                 </div>
             </nav>
             <nav class="navbar navbar-light bg-light px-3 py-0 my-2">
@@ -120,7 +123,7 @@
                                 </td>
                                 <td>
                                     <div class = "col-sm-8">
-                                        <input type = "text" class="form-control" id="tenNNT" name="tenNNT" maxlength="100" size="30" required onblur="" style="" required>
+                                        <input autofocus type = "text" class="form-control" id="tenNNT" name="tenNNT" maxlength="100" size="30" required onblur="" style="" required>
                                     </div>
                                 </td>
                             </tr>
@@ -216,7 +219,7 @@
                                          <a  href="">
                                          	 <!-- <input type="button" id="btnTiepTuc" class="btn btn-custom border" value="Tiếp tục"> -->
                                          	 <input type = "submit" class="btn btn-custom border" value="Tiếp tục">
-                                         </a>
+                                         	 
                                          <a  href="home.jsp">
                                         	<input type="button" id="btnQuayLai" class="btn btn-custom border" value="Quay lại" onclick="back()" style="margin-left: 20px"> 
                                         </a>

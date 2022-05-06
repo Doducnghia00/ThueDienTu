@@ -37,7 +37,7 @@ public class TaiKhoanDao extends DAO{
 			while (rs.next()) {
 				
 				return new TaiKhoan(rs.getInt(1), rs.getString(2) , rs.getString(3) ,rs.getString(4) ,rs.getString(5)
-						,rs.getString(6) , rs.getString(7));
+						,rs.getString(6) , rs.getString(7),rs.getString(8));
 				
 			}
 			con.close();
@@ -57,7 +57,7 @@ public class TaiKhoanDao extends DAO{
 			
 			while (rs.next()) {
 				return new TaiKhoan(rs.getInt(1), rs.getString(2) , rs.getString(3) ,rs.getString(4) ,rs.getString(5)
-						,rs.getString(6) , rs.getString(7));
+						,rs.getString(6) , rs.getString(7),rs.getString(8));
 			}
 			
 		} catch (Exception e) {
@@ -65,5 +65,35 @@ public class TaiKhoanDao extends DAO{
 		}
 		return null;
 	}
+	
+	public int layIdCuoi() {
+		
+		String sql = "SELECT Max(id) as LastID FROM taikhoan";
+		Statement statement;
+		try {
+			statement = con.createStatement();
+			ResultSet rs = statement.executeQuery(sql);
+			int key = 0;
+			if (rs.next()) {
+			    key = rs.getInt(1);
+			}
+			return key;
+		} catch (SQLException e) {			
+			e.printStackTrace();
+			return 0;
+		}
+				
+	}
+public void delete() {
+	  String sqlString = "DELETE FROM thuedientu.taikhoan WHERE id = " + layIdCuoi();
+	  Statement statement;
+	  try {
+		statement = con.createStatement();
+		statement.executeUpdate(sqlString);
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+  }
 	
 }

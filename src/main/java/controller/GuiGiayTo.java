@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
 
 /*
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 */
 
 import java.io.IOException;
+import java.util.Iterator;
 
 import dao.DangKyThueDao;
 
@@ -44,14 +46,26 @@ public class GuiGiayTo extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		/*if(request.getParameter("tieptuc") != null) {
+			response.getWriter().print("Button Tiep Tuc");
+		}else if(request.getParameter("Huy") != null) {
+			response.getWriter().print("Button Huy");
+		}*/
+		
 		Part filePart = request.getPart("file");
 	    
 		String fileName;
+		HttpSession session = request.getSession();
+		int idUser = (int)session.getAttribute("id");
 		int id = 0;
 		// Lay id to dang ky thue
 		DangKyThueDao dangKyThueDao = new DangKyThueDao();
 		id =  dangKyThueDao.layIdCuoi();
 		System.out.println(id);
+		String sqlUpdate = "update thuedientu.dangkythue set idUser = " + idUser + " where idDangKyThue = " + id;
+//		System.out.print(sqlUpdate);
+		dangKyThueDao.themDangKy(sqlUpdate);
 		// Dat ten file theo id
 		if(id == 0 ) {
 			fileName = filePart.getSubmittedFileName();
@@ -62,10 +76,12 @@ public class GuiGiayTo extends HttpServlet {
 		}
 		// Luu file vao D:\\ThueData\\
 	    for (Part part : request.getParts()) {
-	      part.write("D:\\ThueData\\" + fileName);
+	      part.write("C:\\ThueData\\" + fileName);
 	    }
 	    response.getWriter().print("The file uploaded sucessfully. Name = " + fileName);
 		doGet(request, response);
+		
+
 	}
 
 }

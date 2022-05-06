@@ -5,27 +5,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-/*
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-*/
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
-import java.util.Calendar;
 import java.util.Date;
 
 /**
  * Servlet implementation class DangKyThue
  */
-@WebServlet("/DangKyThue")
 public class DangKyThue extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -46,36 +33,37 @@ public class DangKyThue extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		PrintWriter out = response.getWriter();
+		PrintWriter out = response.getWriter(); //1
 		
-		String tenNNT = request.getParameter("tenNNT").replaceAll("\\s\\s+", " ").trim();
-		request.setAttribute("tenNNT", tenNNT);
-		out.println(tenNNT);
-		String loaiGiayTo = request.getParameter("loaiGiayTo");
+		String tenNNT = request.getParameter("tenNNT").replaceAll("\\s\\s+", " ").trim(); //2
+		request.setAttribute("tenNNT", tenNNT); //3
+		out.println(tenNNT);//4
+		String loaiGiayTo = request.getParameter("loaiGiayTo");//5
 		
+		//Check(loaiGiayTo, request);
 		
 		//out.println(loaiGiayTo);
-		String selected = "selected";
-		switch (loaiGiayTo) {
-		case "1010":
-			request.setAttribute("CMND", selected);
-			break;
-		case "2080":
-			request.setAttribute("CCCD", selected);
-			break;
-		case "1020":
-			request.setAttribute("HoChieu", selected);
-			break;
-		case "1070":
-			request.setAttribute("CMTBG", selected);
-			break;
-		case "1040":
-			request.setAttribute("GTH", selected);
-			break;
-		default: request.setAttribute("Default", selected);
-			break;
-		}
-		String soGiayTo = request.getParameter("soGiayTo").replaceAll("\\s\\s+", " ").trim();
+		String selected = "selected"; //6
+		switch (loaiGiayTo) { //7
+		case "1010": //8
+			request.setAttribute("CMND", selected); //9
+			break;//10
+		case "2080": //11
+			request.setAttribute("CCCD", selected);//12
+			break;//13
+		case "1020"://14
+			request.setAttribute("HoChieu", selected);//15
+			break;//16
+		case "1070"://17
+			request.setAttribute("CMTBG", selected);//18
+			break;//19
+		case "1040"://20
+			request.setAttribute("GTH", selected);//21
+			break;//22
+		default: request.setAttribute("Default", selected);//23
+			break;//24
+		}//25
+		String soGiayTo = request.getParameter("soGiayTo").replaceAll("\\s\\s+", " ").trim();//26
 		request.setAttribute("soGiayTo", soGiayTo);
 		String ngayCap = request.getParameter("ngayCap");
 		request.setAttribute("ngayCap", ngayCap);
@@ -93,5 +81,6 @@ public class DangKyThue extends HttpServlet {
 		
 		doGet(request, response);
 	}
-
+	
+	
 }

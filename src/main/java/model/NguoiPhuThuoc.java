@@ -15,6 +15,20 @@ public class NguoiPhuThuoc {
 		this.relationship = relationship;
 		this.dob = dob;
 	}
+	
+	public NguoiPhuThuoc() {
+		super();
+	}
+
+	public NguoiPhuThuoc(String fullname, String address, String cmnd, String relationship, Date dob) {
+		super();
+		this.fullname = fullname;
+		this.address = address;
+		this.cmnd = cmnd;
+		this.relationship = relationship;
+		this.dob = dob;
+	}
+
 	public NguoiPhuThuoc(int id,int idUser, String fullname, String address, String cmnd, String relationship,
 			Date dob) {
 		this.id = id;

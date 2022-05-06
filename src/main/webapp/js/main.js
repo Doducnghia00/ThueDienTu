@@ -40,3 +40,8 @@
 		nopthua.value = tongthue < danop ? danop - tongthue : 0; 
 	}
 }
+
+function TinhThue(){
+	
+}
+

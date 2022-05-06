@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-        <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/main.css" />
     <title>Nộp Thuế</title>
     <style>
         .anh{
@@ -35,7 +35,10 @@
                     <img src="images/logo.png" class="img-fluid" alt="...">                    
                     <img src="images/sitename.png" class="img-fluid ml-2" alt="...">
                 </a>
-                
+                   <div >
+	                    <h4 class="d-inline-block" style="margin-right: 20px">${sessionScope.hoten } </h4>
+	                    <a href="index.jsp" class="btn btn-outline-secondary btn-custom border">Đăng Xuất</a>
+	                </div>
             </div>
         </nav>
         <nav class="navbar navbar-light bg-light px-3 py-0 my-2">
@@ -58,7 +61,7 @@
                 </div>
             </nav>
   
-   <div class="mt-5 mh-100vh container">
+   <div class="mt-5 container">
     <div class="text-center mb-5">
        <h3>Tờ khai nộp thuế </h3>
     </div>
@@ -67,13 +70,13 @@
 	           <div class="form-group row col-sm-6">
 	               <label class="control-label col-sm-4" for="name">Tên người nộp thuế:</label>
 	               <div class="col-sm-8">
-	                   <input type="text" class="form-control w-50" id="name" name="name" value="Nguyễn Văn A" readonly/>
+	                   <input type="text" class="form-control w-50" id="name" name="name" value="${sessionScope.hoten}" readonly/>
 	               </div>
 	           </div>
 	           <div class="form-group row col-sm-6">
 	               <label class="control-label col-sm-4" for="address">Địa chỉ liên hệ:</label>
 	               <div class="col-sm-8">
-	                   <input type="text" class="form-control" id="address" name="address" value="Km10 Trần Phú Hà Đông, Hà Nội" readonly />
+	                   <input type="text" class="form-control" id="address" name="address" value="${sessionScope.diachi}" readonly/>
 	               </div>
 	           </div>
 	       </div>
@@ -81,13 +84,13 @@
 	           <div class="form-group row col-sm-6">
 	               <label class="control-label col-sm-4" for="dob">Ngày sinh:</label>
 	               <div class="col-sm-8">
-	                   <input type="date" class="form-control w-50" id="dob" name="dob" value="" readonly/>
+	                   <input type="date" class="form-control w-50" id="dob" name="${sessionScope.ngaysinh}" value="" readonly/>
 	               </div>
 	           </div>
 	           <div class="form-group row col-sm-6">
 	               <label class="control-label col-sm-4" for="cmnd">Số CMND/CCCD:</label>
 	               <div class="col-sm-8">
-	                   <input type="text" class="form-control w-75" id="cmnd" name="cmnd" value="238634786" readonly />
+	                   <input type="text" class="form-control w-75" id="cmnd" name="cmnd" value="${sessionScope.username}" readonly />
 	               </div>
 	           </div>
 	       </div>
@@ -95,13 +98,13 @@
 	           <div class="form-group row col-sm-6">
 	               <label class="control-label col-sm-4" for="phone">Điện thoại liên lạc:</label>
 	               <div class="col-sm-8">
-	                   <input type="phone" class="form-control w-50" id="phone" name="phone" value="012345678" readonly />
+	                   <input type="phone" class="form-control w-50" id="phone" name="phone" value="${sessionScope.sodienthoai}" readonly />
 	               </div>
 	           </div>
 	           <div class="form-group row col-sm-6">
 	             <label class="control-label col-sm-4" for="email">Địa chỉ Email:</label>
 	             <div class="col-sm-8">
-	               <input type="email" class="form-control w-50" id="email" value="test123@gmail.com" name="email" readonly />
+	               <input type="email" class="form-control w-50" id="email" value="${sessionScope.email}" name="email" readonly />
 	             </div>
 	           </div>
 	       </div>
@@ -109,13 +112,13 @@
 	           <div class="form-group row col-sm-6">
 	               <label class="control-label col-sm-4" for="idThue">Mã số thuế:</label>
 	               <div class="col-sm-8">
-	                   <input type="text" class="form-control w-50" id="idThue" name="mst" value="01232674" readonly />
+	                   <input type="text" class="form-control w-50" id="idThue" name="mst" value=""  required="required" autofocus="autofocus"/>
 	               </div>
 	           </div>
 	           <div class="form-group row col-sm-6">
 	               <label class="control-label col-sm-4" for="cqt">Cơ quan thuế:</label>
 	               <div class="col-sm-8">
-	                   <select id="cqt" class="form-select w-50" role="button" name="cqt" required autofocus="autofocus">
+	                   <select id="cqt" class="form-select w-50" role="button" name="cqt" required >
 	                      <option>Hà Nội</option>                    
 	                      <option>Đà Nẵng</option>
 	                      <option>Hải Phòng</option>
@@ -176,9 +179,8 @@
            </div>
        </form>
 </div>
-
-		<div>
-		<footer class="navbar navbar-light bg-light p-3 footer " style="margin-top: 50px">
+<div>
+<footer class="navbar navbar-light bg-light p-3 footer">
             <div class="container d-flex justify-content-between ">
                 <span>Cơ quan chủ quản: Văn phòng Chính phủ</span>
                 <span>Tổng đài hỗ trợ: 18001096</span>
@@ -188,6 +190,5 @@
         </div>      
 </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous" />
-    
 
 </html>

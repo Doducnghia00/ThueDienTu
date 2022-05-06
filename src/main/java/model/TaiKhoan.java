@@ -7,12 +7,12 @@ private String password;
 private String hoten;
 private String ngaysinh;
 private String sodienthoai;
-private String email;
+private String email,diachi;
 public TaiKhoan() {
 	
 }
 public TaiKhoan(int id, String username, String password, String hoten, String ngaysinh, String sodienthoai,
-		String email) {
+		String email, String diachi) {
 	
 	this.id = id;
 	this.username = username;
@@ -21,6 +21,7 @@ public TaiKhoan(int id, String username, String password, String hoten, String n
 	this.ngaysinh = ngaysinh;
 	this.sodienthoai = sodienthoai;
 	this.email = email;
+	this.diachi = diachi;
 }
 public int getId() {
 	return id;
@@ -54,6 +55,12 @@ public void setNgaysinh(String ngaysinh) {
 }
 public String getSodienthoai() {
 	return sodienthoai;
+}
+public String getDiachi() {
+	return diachi;
+}
+public void setDiachi(String diachi) {
+	this.diachi = diachi;
 }
 public void setSodienthoai(String sodienthoai) {
 	this.sodienthoai = sodienthoai;

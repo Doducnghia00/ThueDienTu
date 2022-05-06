@@ -7,7 +7,7 @@
     <head>
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Thuế Việt Nam</title>
+        <title>Kê Khai Thuế</title>
         
         <!--Import CSS-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
@@ -15,7 +15,7 @@
         
     </head>
     
-    <body class="mh-100vh">
+    <body>
         
         <!--Start Header-->
         <div class="bg-white">
@@ -25,10 +25,10 @@
                         <img src="images/logo.png" class="img-fluid" alt="...">                    
                         <img src="images/sitename.png" class="img-fluid ml-2" alt="...">
                     </a>
-                    <div>
-                        <a href="DangKi.jsp" class="btn btn-outline-secondary btn-custom border">Đăng Ký</a>
-                        <a href="DangNhap.jsp" class="btn btn-outline-secondary btn-custom border">Đăng Nhập</a>
-                    </div>
+                   <div >
+	                    <h4 class="d-inline-block" style="margin-right: 20px">${sessionScope.hoten } </h4>
+	                    <a href="index.jsp" class="btn btn-outline-secondary btn-custom border">Đăng Xuất</a>
+	                </div>
                 </div>
             </nav>
             <nav class="navbar navbar-light bg-light px-3 py-0 my-2">
@@ -59,31 +59,31 @@
                 <div class="form-group row my-3">
                     <label class="control-label col-sm-4" for="name">Tên người gửi:</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="name" value="Nguyễn Văn A" readonly />
+                        <input type="text" class="form-control" id="name" value="${sessionScope.hoten}" readonly />
                     </div>
                 </div>
                 <div class="form-group row my-3">
                     <label class="control-label col-sm-4" for="address">Địa chỉ liên hệ:</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="address" value="Km10 Trần Phú Hà Đông, Hà Nội" readonly />
+                        <input type="text" class="form-control" id="address" value="${sessionScope.diachi}" readonly/>
                     </div>
                 </div>
                 <div class="form-group row my-3">
                     <label class="control-label col-sm-4" for="name">Điện thoại liên lạc:</label>
                     <div class="col-sm-8">
-                        <input type="phone" class="form-control w-75" id="email" value="012345678" readonly />
+                        <input type="phone" class="form-control w-75" id="email" value="${sessionScope.sodienthoai}" readonly />
                     </div>
                 </div>
                 <div class="form-group row my-3">
                   <label class="control-label col-sm-4" for="email">Địa chỉ Email:</label>
                   <div class="col-sm-8">
-                    <input type="email" class="form-control w-75" id="email" value="test123@gmail.com" name="email" readonly />
+                    <input type="email" class="form-control w-75" id="email" value="${sessionScope.email}" name="email" readonly />
                   </div>
                 </div>
                 <div class="form-group row my-3">
                   <label class="control-label col-sm-4" for="cqt">Chọn cơ quan thuế:</label>
                   <div class="col-sm-8"> 
-                    <select id="cqt" class="form-select w-50" role="button" name="cqt" required>
+                    <select  id="cqt" class="form-select w-50" role="button" name="cqt" required>
                       <option>Hà Nội</option>                    
                       <option>Đà Nẵng</option>
                       <option>Hải Phòng</option>
@@ -98,7 +98,7 @@
                 <div class="form-group row my-3">
                     <label class="control-label col-sm-4" for="year">Năm kê khai:</label>
                     <div class="col-sm-8">
-                        <input type="text" required class="form-control d-inline-block w-50" pattern="[0-9]{4}" id="year" name="namkekhai" value="" placeholder="xxxx(vd: 2020)" required />
+                        <input autofocus type="text" required class="form-control d-inline-block w-50" pattern="[0-9]{4}" id="year" name="namkekhai" value="" placeholder="xxxx(vd: 2020)" required />
                         <div class="invalid-feedback">
                            Vui lòng nhập năm kê khai!
                         </div>
@@ -127,6 +127,5 @@
     
     <!--Import JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous" />
-
 </html>
 

@@ -11,13 +11,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-/*
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-*/
+
+//import javax.servlet.ServletException;
+//import javax.servlet.annotation.WebServlet;
+//import javax.servlet.http.HttpServlet;
+//import javax.servlet.http.HttpServletRequest;
+//import javax.servlet.http.HttpServletResponse;
+
 
 import java.io.IOException;
 
@@ -49,14 +49,15 @@ public class KeKhaiThue extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
 		System.out.print("sdfd");
-//		int idUser = (int)session.getAttribute("idUser");
+		int idUser = (int)session.getAttribute("id");
 		String cqt =  request.getParameter("cqt");
 		String namkekhai =  request.getParameter("namkekhai");
 		NguoiPhuThuocDao nptDao = new NguoiPhuThuocDao();
-		ArrayList<NguoiPhuThuoc> listNPT = nptDao.getNPTs(1);
+		ArrayList<NguoiPhuThuoc> listNPT = nptDao.getNPTs(idUser);
 		request.setAttribute("soNPT", listNPT.size());
 		request.setAttribute("cqt", session.getAttribute("cqt"));
 		request.setAttribute("namkekhai", session.getAttribute("namkekhai"));
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("ToKhaiThueTNCN.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -68,13 +69,14 @@ public class KeKhaiThue extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
-		System.out.print("sdfd");
-//		int idUser = (int)session.getAttribute("idUser");
+//		System.out.print("sdfd");
+		int idUser = (int)session.getAttribute("id");
 		String cqt =  request.getParameter("cqt");
 		String namkekhai =  request.getParameter("namkekhai");
 		NguoiPhuThuocDao nptDao = new NguoiPhuThuocDao();
-		ArrayList<NguoiPhuThuoc> listNPT = nptDao.getNPTs(1);
-		request.setAttribute("soNPT", listNPT.size());
+		ArrayList<NguoiPhuThuoc> listNPT = nptDao.getNPTs(idUser);
+		if (listNPT!=null) request.setAttribute("soNPT", listNPT.size());
+		else request.setAttribute("soNPT", 0);
 		request.setAttribute("cqt", cqt);
 		request.setAttribute("namkekhai", namkekhai);
 		session.setAttribute("cqt",cqt);

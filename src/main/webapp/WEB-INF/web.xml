@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
+  <servlet>
+    <description></description>
+    <display-name>DangKyThue</display-name>
+    <servlet-name>DangKyThue</servlet-name>
+    <servlet-class>controller.DangKyThue</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DangKyThue</servlet-name>
+    <url-pattern>/DangKyThue</url-pattern>
+  </servlet-mapping>
   <display-name>ThueDienTu</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
@@ -9,24 +19,4 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>DangKy</display-name>
-    <servlet-name>DangKy</servlet-name>
-    <servlet-class>controller.DangKy</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DangKy</servlet-name>
-    <url-pattern>/DangKy</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>DangNhap</display-name>
-    <servlet-name>DangNhap</servlet-name>
-    <servlet-class>controller.DangNhap</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DangNhap</servlet-name>
-    <url-pattern>/DangNhap</url-pattern>
-  </servlet-mapping>
 </web-app>

@@ -8,6 +8,21 @@ public class ToKhaiThue {
 	private double thunhapvn,thunhapnn,danop,conphainop,nopthua,tongthue;
 	private Date created_at;
 	
+	public ToKhaiThue(String cqt, String namkekhai, String mst, String tennguoinop, double thunhapvn, double thunhapnn,
+			double danop, double conphainop, double nopthua, double tongthue, Date created_at) {
+		super();
+		this.cqt = cqt;
+		this.namkekhai = namkekhai;
+		this.mst = mst;
+		this.tennguoinop = tennguoinop;
+		this.thunhapvn = thunhapvn;
+		this.thunhapnn = thunhapnn;
+		this.danop = danop;
+		this.conphainop = conphainop;
+		this.nopthua = nopthua;
+		this.tongthue = tongthue;
+		this.created_at = created_at;
+	}
 	public ToKhaiThue(int id, int idUser, String cqt, String namkekhai, String mst, String tennguoinop,
 			double thunhapvn, double thunhapnn, double danop, double conphainop, double nopthua, double tongthue,
 			Date created_at) {

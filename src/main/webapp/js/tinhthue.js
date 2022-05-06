@@ -1,5 +1,3 @@
-
-
 function TinhThue(){
 	//var tongthunhap = parseInt(document.getElementById("tongthunhap").value.replace(/./g,""));
 	var tongthunhapText = document.getElementById("tongthunhap").value.replace(/[($)\s\._\-]+/g, '');
@@ -115,6 +113,7 @@ function TinhThue(){
 	
 	    }else if (tmp>80000000){ 
 	        tongthue = 5000000*0.05 + 5000000*0.1 + 8000000*0.15 + 14000000*0.2 + 20000000*0.25 + 28000000*0.3 + (tmp-80000000)*0.35;
+			//tongthue = tongthue.toFixed();
 			
 			text += "Thu nhập chịu thuế = " + formatNumber(tongthunhap) + " - " + "11.000.000" + " - " + formatNumber(npt*4400000) + " = " + formatNumber(tmp) + "<br>";
 	        text += "+ Bậc 1: Thu nhập tính thuế đến 05 triệu đồng, thuế suất 5%:" + "<br>";
@@ -130,14 +129,15 @@ function TinhThue(){
 	        text += "+ Bậc 6: Thu thập tính thuế trên 52 triệu đồng đến 80 triệu đồng, thuế suất 30%:" + "<br>";
 	        text += "<p style = \"margin-left: 0px; height: 0px;\">" + "(80.000.000-52.000.000) x 30% = 8.400.000 " + "</p><br>";
 	        text += "+ Bậc 7: Thu thập tính thuế trên 80 triệu đồng, thuế suất 35%:" + "<br>";
-	        text += "<p style = \"margin-left: 0px; height: 0px;\">" + "("+formatNumber(tmp)+"-80.000.000) x 35% = "+formatNumber(parseInt((tmp-80000000)*0.35 + 0)) + "</p><br>";
-	        text += "Thuế thu nhập cá nhân = 250.000+500.000+1.200.000+2.800.000+5.000.000+8.400.000+"+formatNumber(parseInt((tmp-80000000)*0.35 + 0))+"="+formatNumber(parseInt(tongthue))+"đ" + "<br>";
+	        text += "<p style = \"margin-left: 0px; height: 0px;\">" + "("+formatNumber(tmp)+"-80.000.000) x 35% = "+formatNumber(((tmp-80000000)*0.35).toFixed()) + "</p><br>";
+	        text += "Thuế thu nhập cá nhân = 250.000+500.000+1.200.000+2.800.000+5.000.000+8.400.000+"+formatNumber(((tmp-80000000)*0.35).toFixed())+"="+formatNumber(tongthue.toFixed())+"đ" + "<br>";
 	
 	    }
-	    tongthue = Math.trunc(tongthue);
-		var thue = formatNumber(tongthue);
+	    
+		var thue = formatNumber(tongthue.toFixed());
 	    document.getElementById("kq").innerHTML ="Thuế phải nộp: " + thue + "VNĐ";
 	    console.log(tongthue + "đ");
+		console.log(tongthue.toFixed() + "đ");
 	  	document.getElementById("text").innerHTML = text;
 	}
 } 
@@ -191,4 +191,3 @@ function formatString(string){
 		
 	});
 })(jQuery);
-

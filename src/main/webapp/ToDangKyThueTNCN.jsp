@@ -11,7 +11,6 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/main.css" />  
-    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 	<style>
@@ -74,7 +73,10 @@
                         <img src="images/logo.png" class="img-fluid" alt="...">                    
                         <img src="images/sitename.png" class="img-fluid ml-2" alt="...">
                     </a>
-                   
+                   <div >
+	                    <h4 class="d-inline-block" style="margin-right: 20px">${sessionScope.hoten } </h4>
+	                    <a href="index.jsp" class="btn btn-outline-secondary btn-custom border">Đăng Xuất</a>
+	                </div>
                 </div>
             </nav>
             <nav class="navbar navbar-light bg-light px-3 py-0 my-2">
@@ -173,7 +175,7 @@
                             <div class = "sub-item 4_1">
                                 <label class = "sub-item-name 4_1">4a. Số nhà, đường phố/xóm/ấp/thôn:</label>
                                 <div class = "input_box">
-                                    <input type="text" id="ct4a_soNha" name="ct4a_soNha" value="" class="form-control" style="width: 300px;" maxlength="60" onblur="">
+                                    <input autofocus type="text" id="ct4a_soNha" name="ct4a_soNha" value="" class="form-control" style="width: 300px;" maxlength="60" onblur="">
                                 </div>
                             </div>
 

@@ -1,29 +1,17 @@
 package controller;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
-/*
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-*/
-
 import java.io.IOException;
-
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-
 import dao.NguoiPhuThuocDao;
 import model.NguoiPhuThuoc;
 /**
@@ -32,44 +20,46 @@ import model.NguoiPhuThuoc;
 @WebServlet("/ThemNPT")
 public class ThemNPT extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private NguoiPhuThuocDao nptDao = new NguoiPhuThuocDao();
+	NguoiPhuThuoc npt = new NguoiPhuThuoc();
        
-
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
     public ThemNPT() {
         super();
+        // TODO Auto-generated constructor stub
     }
-
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
 		String fullname =  request.getParameter("fullname");
-		Date dob = null;
-		try {
-			dob = new SimpleDateFormat("yyyy-mm-dd").parse(request.getParameter("dob"));
-		} catch (ParseException e) {
-			e.printStackTrace();
+		//String id = (String) session.getAttribute("id");*/
+		if (session.getAttribute("id") != null) {
+			//int idUser = Integer.parseInt(id);
+			int idUser = (int)session.getAttribute("id");
+			Date dob = null;
+			try {
+				dob = new SimpleDateFormat("yyyy-mm-dd").parse(request.getParameter("dob"));
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			String address = request.getParameter("address");
+			String cmnd = request.getParameter("cmnd");
+			String relationship = request.getParameter("relationship");
+			NguoiPhuThuoc npt = new NguoiPhuThuoc(idUser,fullname,address, cmnd, relationship,dob);
+			nptDao.themNPT(npt);
+			response.getWriter().write("True");
+			response.sendRedirect("KeKhaiNPT");		
+		} //20
+		else { 
+			response.getWriter().write("False");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("dangnhap.jsp");
+			dispatcher.forward(request, response);
 		}
-		String address = request.getParameter("address");
-		String cmnd = request.getParameter("cmnd");
-		String relationship = request.getParameter("relationship");
-		NguoiPhuThuoc npt = new NguoiPhuThuoc(1,fullname,address, cmnd, relationship,dob);
-		NguoiPhuThuocDao nptDao = new NguoiPhuThuocDao();
-		nptDao.themNPT(npt);
-		ArrayList <NguoiPhuThuoc> NPTList = new ArrayList <NguoiPhuThuoc>();
-	    if (session.getAttribute("NPTList") !=null) NPTList = (ArrayList <NguoiPhuThuoc>) session.getAttribute("NPTList");
-		NPTList.add(npt);
-		session.removeAttribute("NPTList");
-		session.setAttribute("NPTList", NPTList);
-		//?
-		response.sendRedirect("KeKhaiNPT");
 	}
-
 }
